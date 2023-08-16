@@ -9,6 +9,8 @@ public class PlayerRotation : MonoBehaviour
     private float horizontal;
 
     [SerializeField] private float rotSpeed;
+    [SerializeField]
+    private GameObject player;
 
     
     
@@ -19,8 +21,8 @@ public class PlayerRotation : MonoBehaviour
         Mathf.Clamp(horizontal, -45f, 45f);
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            transform.Rotate(Vector3.up*horizontal, Space.World);
-            transform.Rotate(Vector3.left*vertical*Time.deltaTime, Space.Self);
+            player.transform.Rotate(Vector3.up*horizontal, Space.World);
+            player.transform.Rotate(Vector3.left*vertical*Time.deltaTime, Space.Self);
             
             
            
