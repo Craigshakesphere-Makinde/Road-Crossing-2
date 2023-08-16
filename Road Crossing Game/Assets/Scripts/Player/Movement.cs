@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    
-    
+    [SerializeField] private string MoveForwardAnime, moveBackwardAnime,jumpAnime;
+    [SerializeField] private Animator player;
     public CharacterController controller;
     public AudioSource run;
 
@@ -64,11 +64,13 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             controller.Move(Vector3.forward  * moveForce * Time.deltaTime);
+            player.Play(MoveForwardAnime);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
             controller.Move(Vector3.back  * moveForce * Time.deltaTime);
+            player.Play(moveBackwardAnime);
         }
         jumpKeyWasPresssed = Input.GetKeyDown(KeyCode.Space);
 
@@ -84,6 +86,7 @@ public class Movement : MonoBehaviour
         if(isGrounded  && jumpKeyWasPresssed)
         {
             controller.Move(Vector3.up*jumpForce*Time.deltaTime);
+            player.Play(jumpAnime);
         }
 
        
