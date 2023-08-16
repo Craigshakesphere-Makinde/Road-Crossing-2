@@ -5,11 +5,7 @@ using UnityEngine;
 
 public class HitPlayer : MonoBehaviour
 {
-    
 
-
-    
-    
    
     private void OnCollisionEnter(Collision other)
     {
@@ -33,7 +29,7 @@ public class HitPlayer : MonoBehaviour
     {
         Debug.Log("Deactivating");
         
-        other.collider.GetComponent<CapsuleCollider>().enabled=false;
+        //other.collider.GetComponent<CapsuleCollider>().enabled=false;
         other.collider.GetComponent<Movement>().enabled=false;
         other.collider.GetComponent<CharacterController>().enabled=false;
 
