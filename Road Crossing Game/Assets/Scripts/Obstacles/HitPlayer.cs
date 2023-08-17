@@ -1,37 +1,56 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HitPlayer : MonoBehaviour
 {
+    public ActivateRagdoll activateRagdoll;
+    private WheelCollider d;
 
-   
-    private void OnCollisionEnter(Collision other)
+    void Start()
     {
-        if (other.collider.CompareTag("Player"))
+        GetComponent<Rigidbody>().isKinematic= false;
+        
+
+    }
+
+
+
+  
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("car"))
         {
-            Debug.Log("It has hit player");
+            
 
-            DeactivateComponent(other);
-            other.collider.GetComponent<ActivateRagdoll>().Activate();
-
+            Debug.Log("Player has been hit");
             
             
-            
+            DeactivateComponent();
+    
             GameOver gameOver= FindObjectOfType<GameOver>();
             gameOver.GameIsOver();
         }
-       
+
     }
 
-    private void DeactivateComponent(Collision other)
+   
+   
+
+    private void DeactivateComponent()
     {
         Debug.Log("Deactivating");
         
-        //other.collider.GetComponent<CapsuleCollider>().enabled=false;
-        other.collider.GetComponent<Movement>().enabled=false;
-        other.collider.GetComponent<CharacterController>().enabled=false;
+        GetComponentInChildren<Animator>().enabled=false;
+        GetComponent<CapsuleCollider>().enabled=false;
+        GetComponent<Movement>().enabled=false;
+        GetComponent<CharacterController>().enabled=false;
+        
+        activateRagdoll.Activate();
+        //GetComponent<Rigidbody>().isKinematic=true;
 
 
     }

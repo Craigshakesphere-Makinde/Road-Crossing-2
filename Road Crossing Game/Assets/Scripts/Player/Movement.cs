@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private GameObject playerMesh;
+    [SerializeField] private float rotSpeed=.3f;
     [SerializeField] private string MoveForwardAnime, moveBackwardAnime,jumpAnime;
     [SerializeField] private Animator player;
     public CharacterController controller;
@@ -25,11 +27,16 @@ public class Movement : MonoBehaviour
 
     private bool jumpKeyWasPresssed;
     private bool moveKeyWasPressed;
+
+    private bool faceForward;
+   
     
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        faceForward=true;
         
     }
 
@@ -63,14 +70,30 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
+            if(!faceForward)
+            {
+                playerMesh.transform.Rotate(new Vector3(0,180,0));
+                
+            }
             controller.Move(transform.forward  * moveForce * Time.deltaTime);
+            faceForward= true;
+            
             player.Play(MoveForwardAnime);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
+            
+            if(faceForward)
+            {
+                playerMesh.transform.Rotate(new Vector3(0,180,0) );
+            }
+            
             controller.Move(Vector3.back  * moveForce * Time.deltaTime);
-            player.Play(moveBackwardAnime);
+            
+            faceForward=false;
+            player.Play(MoveForwardAnime);
+
         }
         jumpKeyWasPresssed = Input.GetKeyDown(KeyCode.Space);
 

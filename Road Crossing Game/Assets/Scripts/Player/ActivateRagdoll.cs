@@ -6,11 +6,13 @@ using UnityEngine;
 public class ActivateRagdoll : MonoBehaviour
 {
 
-    [SerializeField] private GameObject[] bodies;
-    [SerializeField] private Animator anime;
+    
+    private Collider[] ragdollCollider;
+    private Rigidbody[] ragDollbody;
 
     void Start()
     {
+        GetRagDolls();
         Deactivate();
 
         
@@ -19,30 +21,18 @@ public class ActivateRagdoll : MonoBehaviour
     // Start is called before the first frame update
     public void Activate()
     {
-        anime.enabled=false;
+        
         Debug.Log("It is has been activated");
         
-        foreach( GameObject body in bodies)
+        foreach( Collider collider in ragdollCollider)
         {
-            if(body.GetComponent<CapsuleCollider>())
-            {
-                body.GetComponent<CapsuleCollider>().enabled= true;
-                Debug.Log("A capsule collided has been activated");
 
-            }
-            if(body.GetComponent<Rigidbody>())
-            {
-                body.GetComponent<Rigidbody>().isKinematic= true;
-                body.GetComponent<Rigidbody>().useGravity= true;
-                Debug.Log("A rigid body has been activate");
-
-            }
-            if(body.GetComponent<BoxCollider>())
-            {
-                body.GetComponent<BoxCollider>().enabled=true;
-            }
-            
-            
+            collider.enabled=true;
+       
+        }
+        foreach(Rigidbody body in ragDollbody)
+        {
+            body.isKinematic= false;
         }
         
         
@@ -50,11 +40,23 @@ public class ActivateRagdoll : MonoBehaviour
 
     private void Deactivate()
     {
-        foreach(GameObject body in bodies)
+        foreach(Collider collider in ragdollCollider)
         {
-            body.GetComponent<Collider>().enabled=false;
-            body.GetComponent<Rigidbody>().isKinematic= false;
-            body.GetComponent<Rigidbody>().useGravity=false;
+            Debug.Log("Deactivating");
+            collider.enabled= false;
+            
         }
+
+        foreach(Rigidbody body in ragDollbody)
+        {
+            body.isKinematic= true;
+        }
+    }
+
+    private void GetRagDolls()
+    {
+        ragdollCollider= GetComponentsInChildren<Collider>();
+        ragDollbody= GetComponentsInChildren<Rigidbody>();
+
     }
 }
