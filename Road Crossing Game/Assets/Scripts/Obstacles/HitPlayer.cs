@@ -40,7 +40,7 @@ public class HitPlayer : MonoBehaviour
    
    
 
-    private void DeactivateComponent()
+    public void DeactivateComponent()
     {
         Debug.Log("Deactivating");
         

@@ -78,7 +78,9 @@ public class Movement : MonoBehaviour
             controller.Move(transform.forward  * moveForce * Time.deltaTime);
             faceForward= true;
             
+            
             player.Play(MoveForwardAnime);
+            //run.Play();
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
@@ -89,10 +91,12 @@ public class Movement : MonoBehaviour
                 playerMesh.transform.Rotate(new Vector3(0,180,0) );
             }
             
+            
             controller.Move(Vector3.back  * moveForce * Time.deltaTime);
             
             faceForward=false;
             player.Play(MoveForwardAnime);
+            //run.Play();
 
         }
         jumpKeyWasPresssed = Input.GetKeyDown(KeyCode.Space);

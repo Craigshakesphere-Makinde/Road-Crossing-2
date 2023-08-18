@@ -7,6 +7,7 @@ using Random = System.Random;
 public class TrapFall : MonoBehaviour
 {
     [SerializeField] private int coverValue;
+    [SerializeField] private float force=30f;
     
     public DeactivateTerrain deactivateTerrain;
 
@@ -77,17 +78,22 @@ public class TrapFall : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("Player"))
-        {
-            if (coverValue==point1|| coverValue==point2)
-            {
-                GetComponent<MeshCollider>().enabled = false;
-                deactivateTerrain.Deactivate();
-            }
+        // if (other.collider.CompareTag("Player"))
+        // {
+        //     if (coverValue==point1|| coverValue==point2)
+        //     {
+        //         GetComponent<MeshCollider>().enabled = false;
+        //         deactivateTerrain.Deactivate();
+        //     }
            
 
             
-        }
+        // }
+
+        other.collider.GetComponent<Rigidbody>().AddForce(Vector3.up* force, ForceMode.Force);
+        HitPlayer obj=FindObjectOfType<HitPlayer>();
+        obj.DeactivateComponent();
+
 
         
 
