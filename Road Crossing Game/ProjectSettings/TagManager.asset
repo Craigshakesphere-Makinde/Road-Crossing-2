@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Exterminator
+  - boundary
+  - terrain
+  - pavement
+  - sewer cover
+  - car
+  - Bombs
   layers:
   - Default
   - TransparentFX

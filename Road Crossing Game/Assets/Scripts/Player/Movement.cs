@@ -54,18 +54,7 @@ public class Movement : MonoBehaviour
         controller.Move(Vector3.down* acceleration);
         
 
-        // bool checkLeft = EnvironmentBounds.IsLeftMoveable;
-        // if (checkLeft && Input.GetKey(KeyCode.LeftArrow))
-        // {
-        //     controller.Move(Vector3.left*moveForce*Time.deltaTime);
-        // }
-        // bool checkRIght= EnvironmentBounds.IsRightMoveable;
-        // if (checkRIght && Input.GetKey(KeyCode.RightArrow))
-        // {
-        //     controller.Move(Vector3.right * moveForce * Time.deltaTime);
-        // }
-
-
+        
 
 
         if (Input.GetKey(KeyCode.UpArrow))

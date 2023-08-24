@@ -9,7 +9,7 @@ public class TrapFall : MonoBehaviour
     [SerializeField] private int coverValue;
     [SerializeField] private float force=30f;
     
-    public DeactivateTerrain deactivateTerrain;
+   
 
     
     
@@ -28,27 +28,27 @@ public class TrapFall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = spawn.verticalDistance;
-        if (distance > -50 && distance < 50)
-        {
+        // float distance = spawn.verticalDistance;
+        // if (distance > -50 && distance < 50)
+        // {
 
 
-            minValue += Time.deltaTime * 10;
-            if (minValue > 10)
-            {
-                secValue += 1;
-                minValue = 0;
-                if (secValue == 1)
-                {
-                    ChangeColor();
-                    secValue = 0;
+        //     minValue += Time.deltaTime * 10;
+        //     if (minValue > 10)
+        //     {
+        //         secValue += 1;
+        //         minValue = 0;
+        //         if (secValue == 1)
+        //         {
+        //             ChangeColor();
+        //             secValue = 0;
 
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
-        point1 = deactivateTerrain.value1;
-        point2 = deactivateTerrain.value2;
+        // point1 = deactivateTerrain.value1;
+        // point2 = deactivateTerrain.value2;
 
 
     }
@@ -72,7 +72,7 @@ public class TrapFall : MonoBehaviour
 
     public void ChangeColor()
     {
-        StartCoroutine(PavementColorChange());
+        //StartCoroutine(PavementColorChange());
 
     }
 

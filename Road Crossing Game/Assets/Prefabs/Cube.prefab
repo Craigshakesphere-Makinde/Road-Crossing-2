@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488068306869402540}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4330204806533292210}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8255222230923748
 MonoBehaviour:
@@ -48,6 +48,7 @@ MonoBehaviour:
   car2: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
   car3: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
   spawnPoint: {fileID: 8151207606367925773}
+  timeLimit: 3
   verticalDistance: 0
 --- !u!1 &1283173365734648658
 GameObject:
@@ -75,6 +76,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283173365734648658}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.26}
   m_LocalScale: {x: 200, y: 0.2, z: 10}
@@ -84,7 +86,6 @@ Transform:
   - {fileID: 8048441757810731336}
   - {fileID: 8098209178858609457}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6255701265483925275
 MeshFilter:
@@ -144,9 +145,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283173365734648658}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2071527034979987365
@@ -160,11 +169,10 @@ GameObject:
   - component: {fileID: 3629764692207521447}
   - component: {fileID: 8773397147229757986}
   - component: {fileID: 2018160367085234936}
-  - component: {fileID: 3467925791061096246}
-  - component: {fileID: 2255020012224406633}
+  - component: {fileID: 6881532936728924096}
   m_Layer: 0
   m_Name: Cylinder (4)
-  m_TagString: sewer cover
+  m_TagString: Bombs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,13 +184,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071527034979987365}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.17100002, y: -2.8300002, z: 0.030895306}
   m_LocalScale: {x: 0.04, y: 3.3333333, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8098209178858609457}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8773397147229757986
 MeshFilter:
@@ -234,35 +242,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3467925791061096246
-MeshCollider:
+--- !u!136 &6881532936728924096
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071527034979987365}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2255020012224406633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071527034979987365}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4821cd8bcedd1a741ba1d543e88b8554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coverValue: 5
-  deactivateTerrain: {fileID: 8600363566083101528}
-  spawn: {fileID: 8255222230923748}
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.00000014901161}
 --- !u!1 &3992571554929407270
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,11 +276,10 @@ GameObject:
   - component: {fileID: 4486094437595628626}
   - component: {fileID: 1231597470602463262}
   - component: {fileID: 9011315306215626913}
-  - component: {fileID: 5162730209603159127}
-  - component: {fileID: 8589822360994767972}
+  - component: {fileID: 8732217926460171835}
   m_Layer: 0
   m_Name: Cylinder (3)
-  m_TagString: sewer cover
+  m_TagString: Bombs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,13 +291,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992571554929407270}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.019000014, y: -2.8300002, z: 0.030895306}
   m_LocalScale: {x: 0.04, y: 3.3333333, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8098209178858609457}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1231597470602463262
 MeshFilter:
@@ -348,35 +349,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5162730209603159127
-MeshCollider:
+--- !u!136 &8732217926460171835
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992571554929407270}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &8589822360994767972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3992571554929407270}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4821cd8bcedd1a741ba1d543e88b8554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coverValue: 4
-  deactivateTerrain: {fileID: 8600363566083101528}
-  spawn: {fileID: 8255222230923748}
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.00000014901161}
 --- !u!1 &6241192303375463018
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,11 +383,10 @@ GameObject:
   - component: {fileID: 7145226546314717412}
   - component: {fileID: 7728166695727530565}
   - component: {fileID: 2583147092896658063}
-  - component: {fileID: 6786387894658661503}
-  - component: {fileID: 7586008074545416490}
+  - component: {fileID: 5498532963284555235}
   m_Layer: 0
   m_Name: Cylinder (1)
-  m_TagString: sewer cover
+  m_TagString: Bombs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -404,13 +398,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6241192303375463018}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.33429995, y: -2.8300002, z: 0.030895306}
   m_LocalScale: {x: 0.04, y: 3.3333333, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8098209178858609457}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7728166695727530565
 MeshFilter:
@@ -462,35 +456,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6786387894658661503
-MeshCollider:
+--- !u!136 &5498532963284555235
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6241192303375463018}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &7586008074545416490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6241192303375463018}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4821cd8bcedd1a741ba1d543e88b8554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coverValue: 2
-  deactivateTerrain: {fileID: 8600363566083101528}
-  spawn: {fileID: 8255222230923748}
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.00000014901161}
 --- !u!1 &7537164107947108386
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,11 +490,10 @@ GameObject:
   - component: {fileID: 4618680901178736324}
   - component: {fileID: 3319085102164573259}
   - component: {fileID: 3107235926415949989}
-  - component: {fileID: 7716786966035733713}
-  - component: {fileID: 740055350965344705}
+  - component: {fileID: 8809570685592798608}
   m_Layer: 0
   m_Name: Cylinder (5)
-  m_TagString: sewer cover
+  m_TagString: Bombs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -518,13 +505,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7537164107947108386}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.39999998, y: -2.8300002, z: 0.030895306}
   m_LocalScale: {x: 0.04, y: 3.3333333, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8098209178858609457}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3319085102164573259
 MeshFilter:
@@ -576,35 +563,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7716786966035733713
-MeshCollider:
+--- !u!136 &8809570685592798608
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7537164107947108386}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &740055350965344705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7537164107947108386}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4821cd8bcedd1a741ba1d543e88b8554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coverValue: 6
-  deactivateTerrain: {fileID: 8600363566083101528}
-  spawn: {fileID: 8255222230923748}
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.00000014901161}
 --- !u!1 &7720971352181203432
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,13 +610,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7720971352181203432}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8048441757810731336}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &188382062518255846
 MonoBehaviour:
@@ -653,6 +634,7 @@ MonoBehaviour:
   car2: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
   car3: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
   spawnPoint: {fileID: 7931797592761394049}
+  timeLimit: 3
   verticalDistance: 0
 --- !u!1 &7887286848721002548
 GameObject:
@@ -665,11 +647,10 @@ GameObject:
   - component: {fileID: 7520005320657933552}
   - component: {fileID: 5855737518418885027}
   - component: {fileID: 8104326079876741578}
-  - component: {fileID: 4711257862269611134}
-  - component: {fileID: 4384829226240959095}
+  - component: {fileID: 3825734724067562755}
   m_Layer: 0
   m_Name: Cylinder (2)
-  m_TagString: sewer cover
+  m_TagString: Bombs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -681,13 +662,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7887286848721002548}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.203, y: -2.8300002, z: 0.030895306}
   m_LocalScale: {x: 0.04, y: 3.3333333, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8098209178858609457}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5855737518418885027
 MeshFilter:
@@ -739,35 +720,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4711257862269611134
-MeshCollider:
+--- !u!136 &3825734724067562755
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7887286848721002548}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4384829226240959095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7887286848721002548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4821cd8bcedd1a741ba1d543e88b8554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coverValue: 3
-  deactivateTerrain: {fileID: 8600363566083101528}
-  spawn: {fileID: 8255222230923748}
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.00000014901161}
 --- !u!1 &7943775786388004023
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,11 +754,10 @@ GameObject:
   - component: {fileID: 7079466821821010492}
   - component: {fileID: 6403422564224748909}
   - component: {fileID: 3457966021519573495}
-  - component: {fileID: 8307754508777148384}
-  - component: {fileID: 7213944443894836872}
+  - component: {fileID: 2435683715059095671}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: sewer cover
+  m_TagString: Bombs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -795,13 +769,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7943775786388004023}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.451, y: -2.8300002, z: 0.030895306}
   m_LocalScale: {x: 0.04, y: 3.3333333, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8098209178858609457}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6403422564224748909
 MeshFilter:
@@ -853,35 +827,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8307754508777148384
-MeshCollider:
+--- !u!136 &2435683715059095671
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7943775786388004023}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &7213944443894836872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943775786388004023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4821cd8bcedd1a741ba1d543e88b8554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coverValue: 1
-  deactivateTerrain: {fileID: 8600363566083101528}
-  spawn: {fileID: 8255222230923748}
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: 0.00000014901161}
 --- !u!1 &7961375430505750816
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +859,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8098209178858609457}
-  - component: {fileID: 8600363566083101528}
   m_Layer: 0
   m_Name: Cylinder Holder
   m_TagString: Untagged
@@ -906,6 +873,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7961375430505750816}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.03}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
@@ -918,22 +886,7 @@ Transform:
   - {fileID: 3629764692207521447}
   - {fileID: 4618680901178736324}
   m_Father: {fileID: 8187118709035314103}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8600363566083101528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7961375430505750816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8808ebeed6970fe48b01358a05b0a50a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value1: 0
-  value2: 0
 --- !u!1 &8142329128057293431
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +910,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8142329128057293431}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.4348, y: 14.400001, z: -0.7399999}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -964,7 +918,6 @@ Transform:
   m_Children:
   - {fileID: 7931797592761394049}
   m_Father: {fileID: 8187118709035314103}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8513215587824510420
 GameObject:
@@ -989,6 +942,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8513215587824510420}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.4348, y: 14.400001, z: 0.73999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -996,5 +950,4 @@ Transform:
   m_Children:
   - {fileID: 8151207606367925773}
   m_Father: {fileID: 8187118709035314103}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

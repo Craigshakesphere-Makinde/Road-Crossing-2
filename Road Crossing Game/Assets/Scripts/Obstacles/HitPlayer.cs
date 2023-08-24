@@ -6,8 +6,15 @@ using UnityEngine;
 
 public class HitPlayer : MonoBehaviour
 {
+    [SerializeField] private float explosionForce=30f;
+    [SerializeField] private float explosionRadius=10f;
+
+    [SerializeField] private float upwardsModifier=.5f;
+
+    [SerializeField] private Rigidbody meshBody;
+
     public ActivateRagdoll activateRagdoll;
-    private WheelCollider d;
+  
 
     void Start()
     {
@@ -20,7 +27,7 @@ public class HitPlayer : MonoBehaviour
 
   
 
-    void OnTriggerEnter(Collider collider)
+    IEnumerator OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("car"))
         {
@@ -30,16 +37,30 @@ public class HitPlayer : MonoBehaviour
             
             
             DeactivateComponent();
+
+            yield return new WaitForSeconds(3f);
     
-            GameOver gameOver= FindObjectOfType<GameOver>();
-            gameOver.GameIsOver();
+            // GameOver gameOver= FindObjectOfType<GameOver>();
+            // gameOver.GameIsOver();
+        }
+
+        else if(collider.gameObject.CompareTag("Bombs"))
+        {
+            Debug.Log("Has meet with a bomb");
+            
+            DeactivateComponent();
+            BombEffect();
+            
+            yield return new WaitForSeconds(3f);
+
+            // GameOver gameOver= FindObjectOfType<GameOver>();
+            // gameOver.GameIsOver();
         }
 
     }
 
    
    
-
     public void DeactivateComponent()
     {
         Debug.Log("Deactivating");
@@ -53,5 +74,14 @@ public class HitPlayer : MonoBehaviour
         //GetComponent<Rigidbody>().isKinematic=true;
 
 
+    }
+
+    private void BombEffect()
+    {
+        Debug.Log("Bomb Effect was added");
+        meshBody.isKinematic=false;
+        meshBody.useGravity=false;
+        //meshBody.AddExplosionForce(explosionForce, transform.position,explosionRadius,upwardsModifier);
+        meshBody.GetComponent<Rigidbody>().AddForce(Vector3.up*50, ForceMode.Force);
     }
 }
