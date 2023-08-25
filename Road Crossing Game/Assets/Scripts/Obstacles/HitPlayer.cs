@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class HitPlayer : MonoBehaviour
 {
-    [SerializeField] private float explosionForce=30f;
+    [SerializeField] private GameObject[] bombEffect;
+    [SerializeField] private float explosionForceUp=30f;
+    [SerializeField] private float explosionForceBack=25;
     [SerializeField] private float explosionRadius=10f;
 
     [SerializeField] private float upwardsModifier=.5f;
@@ -23,9 +25,6 @@ public class HitPlayer : MonoBehaviour
 
     }
 
-
-
-  
 
     IEnumerator OnTriggerEnter(Collider collider)
     {
@@ -48,13 +47,26 @@ public class HitPlayer : MonoBehaviour
         {
             Debug.Log("Has meet with a bomb");
             
-            DeactivateComponent();
-            BombEffect();
+            //DeactivateComponent();
+         
+            StartCoroutine(BombEffect());
             
             yield return new WaitForSeconds(3f);
 
             // GameOver gameOver= FindObjectOfType<GameOver>();
             // gameOver.GameIsOver();
+        }
+
+        else if(collider.gameObject.CompareTag("Pole"))
+        {
+            Debug.Log("Has meet with a bomb");
+            
+            //DeactivateComponent();
+         
+            StartCoroutine(ShockEffect());
+            
+            yield return new WaitForSeconds(3f);
+
         }
 
     }
@@ -71,17 +83,38 @@ public class HitPlayer : MonoBehaviour
         GetComponent<CharacterController>().enabled=false;
         
         activateRagdoll.Activate();
-        //GetComponent<Rigidbody>().isKinematic=true;
+        
 
 
     }
 
-    private void BombEffect()
+    IEnumerator BombEffect()
     {
+        
         Debug.Log("Bomb Effect was added");
         meshBody.isKinematic=false;
-        meshBody.useGravity=false;
-        //meshBody.AddExplosionForce(explosionForce, transform.position,explosionRadius,upwardsModifier);
-        meshBody.GetComponent<Rigidbody>().AddForce(Vector3.up*50, ForceMode.Force);
+        meshBody.useGravity=true;
+        //meshBody.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,explosionRadius,upwardsModifier);
+        GameObject bomb= Instantiate(bombEffect[0], transform.position, Quaternion.identity);
+        Destroy(bomb, .2f);
+        meshBody.GetComponent<Rigidbody>().AddForce(Vector3.up*explosionForceUp, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(.1f);
+        DeactivateComponent();
+    }
+
+    IEnumerator ShockEffect()
+    {
+        Debug.Log("Shock Effect was added");
+        meshBody.isKinematic=false;
+        meshBody.useGravity=true;
+        //meshBody.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,explosionRadius,upwardsModifier);
+        GameObject bomb= Instantiate(bombEffect[1], transform.position, Quaternion.identity);
+        Destroy(bomb, .2f);
+        meshBody.GetComponent<Rigidbody>().AddForce(Vector3.up*explosionForceBack, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(.08f);
+        DeactivateComponent();
+
     }
 }
