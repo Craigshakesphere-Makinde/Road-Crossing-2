@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    public GameOver gameOver;
+   
 
     private void OnCollisionEnter(Collision other)
     {
@@ -14,11 +14,7 @@ public class Destroyer : MonoBehaviour
             Rigidbody point = other.rigidbody;
             Destroy(point.gameObject);
         }
-        else if(other.collider.CompareTag("Player"))
-        {
-            gameOver.GameIsOver();
-            
-        }
+        
         
     }
 
@@ -31,10 +27,7 @@ public class Destroyer : MonoBehaviour
             
 
         }
-        else
-        {
-            gameOver.GameIsOver();
-        }
+       
 
     }
 
