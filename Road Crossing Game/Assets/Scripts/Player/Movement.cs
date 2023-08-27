@@ -90,8 +90,11 @@ public class Movement : MonoBehaviour
         }
         jumpKeyWasPresssed = Input.GetKeyDown(KeyCode.Space);
 
+        Debug.Log(Physics.OverlapSphere(groundCheck.transform.position,0.1f).Length);
         
-        if (Physics.OverlapSphere(groundCheck.transform.position,0.1f ).Length == 2)
+
+        
+        if (Physics.OverlapSphere(groundCheck.transform.position,0.1f ).Length < 2)
         {
             isGrounded = true;
         }
