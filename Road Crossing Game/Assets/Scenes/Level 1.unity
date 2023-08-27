@@ -2336,7 +2336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801a8af2ca01e024ea0055e61da31694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
 --- !u!1 &355143798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,6 +2802,22 @@ PrefabInstance:
     - target: {fileID: 1283173365734648658, guid: f270fac2b4d938b4f94ac2d8e2cd5945, type: 3}
       propertyPath: m_Name
       value: Cube (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808528200521363327, guid: f270fac2b4d938b4f94ac2d8e2cd5945, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815330577581207281, guid: f270fac2b4d938b4f94ac2d8e2cd5945, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8004481250446286421, guid: f270fac2b4d938b4f94ac2d8e2cd5945, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024620509366928264, guid: f270fac2b4d938b4f94ac2d8e2cd5945, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098209178858609457, guid: f270fac2b4d938b4f94ac2d8e2cd5945, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9636,9 +9651,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecbabbf183b0497498ddd7d729f8a019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 50
+  bombEffect:
+  - {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  - {fileID: 2908498262870670456, guid: 4a8b8ca5391b73841b9a5c4dfcc45443, type: 3}
+  explosionForceUp: 30
+  explosionForceBack: 25
   explosionRadius: 10
-  upwardsModifier: 0.5
+  upwardsModifier: 1
   meshBody: {fileID: 1783020059}
   activateRagdoll: {fileID: 1783020058}
 --- !u!54 &1656821306
@@ -10435,7 +10454,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
