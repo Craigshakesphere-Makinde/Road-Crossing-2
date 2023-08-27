@@ -75,7 +75,7 @@ public class HitPlayer : MonoBehaviour
    
     public void DeactivateComponent()
     {
-        Debug.Log("Deactivating");
+       // Debug.Log("Deactivating");
         
         GetComponentInChildren<Animator>().enabled=false;
         GetComponent<CapsuleCollider>().enabled=false;
@@ -91,7 +91,7 @@ public class HitPlayer : MonoBehaviour
     IEnumerator BombEffect()
     {
         
-        Debug.Log("Bomb Effect was added");
+        //Debug.Log("Bomb Effect was added");
         meshBody.isKinematic=false;
         meshBody.useGravity=true;
         //meshBody.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,explosionRadius,upwardsModifier);
@@ -105,7 +105,7 @@ public class HitPlayer : MonoBehaviour
 
     IEnumerator ShockEffect()
     {
-        Debug.Log("Shock Effect was added");
+        //Debug.Log("Shock Effect was added");
         meshBody.isKinematic=false;
         meshBody.useGravity=true;
         //meshBody.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,explosionRadius,upwardsModifier);
