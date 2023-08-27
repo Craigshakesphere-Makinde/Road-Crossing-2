@@ -22,7 +22,7 @@ public class ActivateRagdoll : MonoBehaviour
     public void Activate()
     {
         
-        Debug.Log("It is has been activated");
+        //Debug.Log("It is has been activated");
         
         foreach( Collider collider in ragdollCollider)
         {
@@ -42,7 +42,7 @@ public class ActivateRagdoll : MonoBehaviour
     {
         foreach(Collider collider in ragdollCollider)
         {
-            Debug.Log("Deactivating");
+            //Debug.Log("Deactivating");
             collider.enabled= false;
             
         }
