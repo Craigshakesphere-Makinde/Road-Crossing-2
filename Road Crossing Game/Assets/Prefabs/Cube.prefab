@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ae88a57a8295046963019b1d1f8de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car1: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
+  car1: {fileID: 7890801707938901843, guid: 5aa4cd882b73c0342836ef8dd8414115, type: 3}
   car2: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
-  car3: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
+  car3: {fileID: 4274521849008716493, guid: 5cb4329cfb497b84494d7ed322a9b215, type: 3}
   spawnPoint: {fileID: 8151207606367925773}
   timeLimit: 3
   verticalDistance: 0
@@ -634,9 +634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ae88a57a8295046963019b1d1f8de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car1: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
+  car1: {fileID: 7890801707938901843, guid: 5aa4cd882b73c0342836ef8dd8414115, type: 3}
   car2: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
-  car3: {fileID: 8711277961476632942, guid: a1b1313eadaf84f47b11b99a0c00c4ab, type: 3}
+  car3: {fileID: 4274521849008716493, guid: 5cb4329cfb497b84494d7ed322a9b215, type: 3}
   spawnPoint: {fileID: 7931797592761394049}
   timeLimit: 3
   verticalDistance: 0
