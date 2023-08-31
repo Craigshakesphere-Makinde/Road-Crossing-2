@@ -21,6 +21,7 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         cubeX = camHolder.transform.eulerAngles.x;
         cubeY = camHolder.transform.eulerAngles.y;
         cubeZ = camHolder.transform.eulerAngles.z;
